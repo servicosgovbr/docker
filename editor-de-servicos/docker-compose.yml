@@ -1,0 +1,14 @@
+editor-de-servicos:
+  image: servicosgovbr/editor-de-servicos
+  volumes:
+   - "~./ssh/id_rsa:/root/.ssh/id_rsa"
+  environment:
+    JAVA_OPTS: '-Dfile.encoding=UTF-8 -Xms256M -Xmx1G'
+    SPRING_THYMELEAF_CACHE: true
+    FLAGS_GIT_PUSH: true
+    EDS_CARTAS_REPOSITORIO: 'git@github.com:servicosgovbr/cartas-de-servico.git'
+    ENDPOINTS_ENABLED: false
+    ENDPOINTS_JOLOKIA_ENABLED: false
+    ENDPOINTS_INFO_ENABLED: true
+    ENDPOINTS_HEALTH_ENABLED: true
+    ENDPOINTS_HEALTH_SENSITIVE: false
