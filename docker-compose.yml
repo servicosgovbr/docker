@@ -7,6 +7,8 @@ balanceador:
     - portal2
     - editor1
     - editor2
+    - es1
+    - es2
 
 portal1:
   extends:
