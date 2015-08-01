@@ -1,6 +1,6 @@
 FROM centos
 
-ADD yum.repo /etc/yum.repos.d/portal.repo
+ADD yum.repo /etc/yum.repos.d/portal-de-servicos.repo
 ADD run.sh /run.sh
 
 RUN rpm --import https://raw.githubusercontent.com/servicosgovbr/portal-de-servicos/master/src/main/resources/static/GPG-KEY
