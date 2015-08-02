@@ -1,5 +1,7 @@
 balanceador:
-  image: servicosgovbr/balanceador
+  extends:
+    file: balanceador/docker-compose.yml
+    service: balanceador
   ports:
     - '80:80'
   links:
