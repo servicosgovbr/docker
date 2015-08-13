@@ -1,2 +1,2 @@
 balanceador:
-  build: .
+  image: servicosgovbr/balanceador

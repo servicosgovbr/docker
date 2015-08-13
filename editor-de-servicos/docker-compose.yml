@@ -1,5 +1,5 @@
 editor-de-servicos:
-  build: .
+  image: servicosgovbr/editor-de-servicos
   volumes:
    - "~./ssh/id_rsa:/root/.ssh/id_rsa"
   environment:
