@@ -1,4 +1,5 @@
 balanceador:
+  container_name: balanceador
   extends:
     file: balanceador/docker-compose.yml
     service: balanceador
@@ -15,6 +16,7 @@ balanceador:
     - cadvisor
 
 cadvisor:
+  container_name: cadvisor
   image: google/cadvisor:latest
   volumes:
     - '/:/rootfs:ro'
@@ -25,6 +27,7 @@ cadvisor:
     - '8080'
 
 portal1:
+  container_name: portal1
   extends:
     file: portal-de-servicos/docker-compose.yml
     service: portal-de-servicos
@@ -33,6 +36,7 @@ portal1:
     - es2
 
 portal2:
+  container_name: portal2
   extends:
     file: portal-de-servicos/docker-compose.yml
     service: portal-de-servicos
@@ -43,19 +47,23 @@ portal2:
     FLAGS_IMPORTAR_AUTOMATICAMENTE: false
 
 editor1:
+  container_name: editor1
   extends:
     file: editor-de-servicos/docker-compose.yml
     service: editor-de-servicos
 
 editor2:
+  container_name: editor2
   extends:
     file: editor-de-servicos/docker-compose.yml
     service: editor-de-servicos
 
 es1:
+  container_name: es1
   image: elasticsearch
   links:
    - es2
 
 es2:
+  container_name: es2
   image: elasticsearch
