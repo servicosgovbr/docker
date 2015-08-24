@@ -4,6 +4,7 @@ balanceador:
     service: balanceador
   ports:
     - '80:80'
+    - '8080:8080'
   links:
     - portal1
     - portal2
@@ -11,6 +12,17 @@ balanceador:
     - editor2
     - es1
     - es2
+    - cadvisor
+
+cadvisor:
+  image: google/cadvisor:latest
+  volumes:
+    - '/:/rootfs:ro'
+    - '/var/run:/var/run:rw'
+    - '/sys:/sys:ro'
+    - '/var/lib/docker/:/var/lib/docker:ro'
+  expose:
+    - '8080'
 
 portal1:
   extends:
