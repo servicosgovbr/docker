@@ -14,6 +14,7 @@ balanceador:
     - es1
     - es2
     - cadvisor
+    - logspout
 
 cadvisor:
   container_name: cadvisor
@@ -26,6 +27,14 @@ cadvisor:
     - '/var/lib/docker/:/var/lib/docker:ro'
   expose:
     - '8080'
+
+logspout:
+  container_name: logspout
+  image: gliderlabs/logspout:latest
+  volumes:
+    - '/var/run/docker.sock:/tmp/docker.sock'
+  expose:
+    - '8000'
 
 portal1:
   container_name: portal1
