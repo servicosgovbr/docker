@@ -18,6 +18,7 @@ balanceador:
 cadvisor:
   container_name: cadvisor
   image: google/cadvisor:latest
+  privileged: true
   volumes:
     - '/:/rootfs:ro'
     - '/var/run:/var/run:rw'
