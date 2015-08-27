@@ -6,15 +6,18 @@ balanceador:
   ports:
     - '80:80'
     - '8080:8080'
+    - '5601:5601'
   links:
+    - es1
+    - es2
+    - logstash
+    - kibana
+    - logspout
     - portal1
     - portal2
     - editor1
     - editor2
-    - es1
-    - es2
     - cadvisor
-    - logspout
 
 cadvisor:
   container_name: cadvisor
@@ -30,11 +33,38 @@ cadvisor:
 
 logspout:
   container_name: logspout
-  image: gliderlabs/logspout:latest
+  image: servicosgovbr/logspout:latest
   volumes:
     - '/var/run/docker.sock:/tmp/docker.sock'
   expose:
-    - '8000'
+    - '80'
+  environment:
+    ROUTE_URIS: 'logstash://logstash:5000'
+  links:
+    - logstash
+
+logstash:
+  container_name: logstash
+  image: logstash:latest
+  expose:
+    - '5000'
+  volumes:
+    - './logstash:/config'
+  command: logstash agent -f /config/logstash.conf
+  links:
+    - es1
+    - es2
+
+kibana:
+  container_name: kibana
+  image: kibana:latest
+
+  environment:
+    ELASTICSEARCH_URL: http://es1:9200
+
+  links:
+    - es1
+    - es2
 
 portal1:
   container_name: portal1
