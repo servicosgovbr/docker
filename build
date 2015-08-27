@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for i in balanceador editor-de-servicos portal-de-servicos logspout
+do
+  pushd "${i}" > /dev/null
+  docker build -t="servicosgovbr/${i}" .
+  popd > /dev/null
+done
+
