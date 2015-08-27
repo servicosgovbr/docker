@@ -4,7 +4,7 @@ Este repositório contém `Dockerfile`s e configurações do Docker Compose para
 
 Para utilizá-lo, é necessário ter instalados:
 
-- Docker, 1.7 ou superior
-- Docker-Compose, 1.3 ou superior
+- Docker, 1.8 ou superior
+- Docker-Compose, 1.4 ou superior
 - Bash
 
