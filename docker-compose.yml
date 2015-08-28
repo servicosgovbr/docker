@@ -101,9 +101,15 @@ editor2:
 es1:
   container_name: 'es1'
   image: 'elasticsearch'
+  command: 'elasticsearch -Des.node.name="es1"'
+  volumes:
+   - '/usr/share/elasticsearch/es1/data:/usr/share/elasticsearch/data'
   links:
    - 'es2'
 
 es2:
   container_name: 'es2'
   image: 'elasticsearch'
+  command: 'elasticsearch -Des.node.name="es2"'
+  volumes:
+    - '/usr/share/elasticsearch/es2/data:/usr/share/elasticsearch/data'
