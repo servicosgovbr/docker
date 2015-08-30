@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for i in balanceador editor-de-servicos portal-de-servicos logspout
+for i in balanceador editor-de-servicos portal-de-servicos logspout logstash
 do
   pushd "${i}" > /dev/null
   docker build -t="servicosgovbr/${i}" .

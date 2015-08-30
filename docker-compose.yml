@@ -45,12 +45,7 @@ logspout:
 
 logstash:
   container_name: 'logstash'
-  image: 'logstash:latest'
-  expose:
-    - '5000'
-  volumes:
-    - './logstash:/config'
-  command: 'logstash agent -f /config/logstash.conf'
+  image: 'servicosgovbr/logstash'
   links:
     - 'es1'
     - 'es2'
