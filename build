@@ -3,7 +3,7 @@
 for i in "$@"
 do
   pushd "${i}" > /dev/null
-  docker build -t="servicosgovbr/${i}" .
+  docker build --no-cache=true -t="servicosgovbr/${i}" .
   popd > /dev/null
 done
 
