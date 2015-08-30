@@ -1,7 +1,7 @@
 'editor-de-servicos':
   image: 'servicosgovbr/editor-de-servicos'
   volumes:
-   - "~/.ssh:/root/.ssh"
+   - "/root/.ssh:/root/.ssh:ro"
   environment:
     JAVA_OPTS: '-Dfile.encoding=UTF-8 -Xms256M -Xmx1G -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC'
     SPRING_THYMELEAF_CACHE: true
