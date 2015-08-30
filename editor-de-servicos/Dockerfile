@@ -7,7 +7,6 @@ RUN rpm --import https://raw.githubusercontent.com/servicosgovbr/editor-de-servi
 RUN yum install -y editor-de-servicos
 
 ADD run.sh /run.sh
-ADD known_hosts /root/.ssh/known_hosts
 
 EXPOSE 8090
 CMD sh /run.sh
