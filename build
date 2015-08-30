@@ -1,9 +1,9 @@
 #!/bin/bash
 
-for i in balanceador editor-de-servicos portal-de-servicos logspout logstash
+for i in "$@"
 do
   pushd "${i}" > /dev/null
-  docker build --no-cache -t="servicosgovbr/${i}" .
+  docker build -t="servicosgovbr/${i}" .
   popd > /dev/null
 done
 
