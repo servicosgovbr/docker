@@ -1,6 +1,4 @@
-FROM centos
-
-RUN yum install -y java-1.8.0-openjdk-devel
+FROM azul/zulu-openjdk-centos
 
 ADD yum.repo /etc/yum.repos.d/portal-de-servicos.repo
 RUN rpm --import https://raw.githubusercontent.com/servicosgovbr/portal-de-servicos/master/src/main/resources/static/GPG-KEY
