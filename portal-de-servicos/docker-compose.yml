@@ -5,6 +5,7 @@ portal-de-servicos:
     SPRING_DATA_ELASTICSEARCH_CLUSTERNODES: "es1:9300,es2:9300"
     SPRING_THYMELEAF_CACHE: true
     EDS_CARTAS_REPOSITORIO=https://github.com/servicosgovbr/cartas-de-servico.git
+    PDS_IMPORTADOR_CRON="0 */30 * * * MON-FRI"
     PDS_PIWIK_ENABLED: false
     PDS_PIWIK_URL: "https://estatisticas.presidencia.gov.br/"
     PDS_PIWIK_TOKEN: ''
