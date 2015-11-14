@@ -18,6 +18,7 @@ balanceador:
     - 'editor1'
     - 'editor2'
     - 'cadvisor'
+    - 'postgres'
 
 cadvisor:
   container_name: 'cadvisor'
