@@ -1,0 +1,15 @@
+set -x
+set -e
+set -o pipefail
+
+cd '/root/docker'
+git pull --rebase
+
+docker-compose stop editor1 editor2
+docker-compose kill editor1 editor2
+docker-compose rm -f editor1 editor2
+
+./build editor-de-servicos
+
+docker-compose up -d
+docker-compose restart balanceador
