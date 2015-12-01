@@ -8,3 +8,7 @@ Para utilizá-lo, é necessário ter instalados:
 - Docker-Compose, 1.4 ou superior
 - Bash
 
+## Configuração de SSL
+
+Para o correto funcionamento do balanceador de carga, é preciso ter
+dentro da pasta *balanceador/*  um arquivo chamado SERVICOSGOVBR.pem 

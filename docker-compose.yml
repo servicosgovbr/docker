@@ -5,6 +5,7 @@ balanceador:
     service: 'balanceador'
   ports:
     - '80:80'
+    - '443:443'
     - '8080:8080'
     - '5601:5601'
   links:
