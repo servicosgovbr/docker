@@ -10,5 +10,34 @@ Para utilizá-lo, é necessário ter instalados:
 
 ## Configuração de SSL
 
-Para o correto funcionamento do balanceador de carga, é preciso ter
-dentro da pasta *balanceador/*  um arquivo chamado SERVICOSGOVBR.pem 
+Para o correto funcionamento do balanceador de carga, é preciso ter dentro da pasta *balanceador/*  um arquivo chamado SERVICOSGOVBR.pem
+
+## Build 
+
+Para efetuar o build dos contêiners, é necessário executar o comando abaixo:
+
+```
+./build-all
+```
+
+## Iniciar os contêineres
+
+Para iniciar os contêineres e analisar os logs na console, execute o comando abaixo: 
+
+```
+docker-compose up 
+```
+
+Para iniciar os contêiners em modo background, sem visualizar os logs na console, execute o comando abaixo:
+
+```
+docker-compose up -d
+```
+
+## Troubleshooting
+
+Caso tenha iniciado o ambiente em modo background existe uma forma de analisar os logs do contêiner em execução:
+
+```
+docker logs -f nome_do_contêiner
+```
