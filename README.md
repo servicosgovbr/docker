@@ -12,6 +12,10 @@ Para utilizá-lo, é necessário ter instalados:
 
 Para o correto funcionamento do balanceador de carga, é preciso ter dentro da pasta *balanceador/*  um arquivo chamado SERVICOSGOVBR.pem
 
+## Configurar o SSH
+
+Para correto funcionamento do editor, é preciso criar uma chave SSH, colocar essa chave na pasta /root/.ssh e então aplicar essa chave com permissão de leitura e escrita no repositório de cartas-de-servicos.
+
 ## Build 
 
 Para efetuar o build dos contêiners, é necessário executar o comando abaixo:
@@ -41,3 +45,5 @@ Caso tenha iniciado o ambiente em modo background existe uma forma de analisar o
 ```
 docker logs -f nome_do_contêiner
 ```
+
+
