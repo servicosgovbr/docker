@@ -1,5 +1,6 @@
 'editor-de-servicos':
   image: 'servicosgovbr/editor-de-servicos'
+  restart: 'always'
   volumes:
    - "/root/.ssh:/root/.ssh:ro"
   environment:

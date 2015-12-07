@@ -1,2 +1,3 @@
 balanceador:
   image: servicosgovbr/balanceador
+  restart: 'always'

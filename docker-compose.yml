@@ -35,6 +35,7 @@ cadvisor:
 
 logspout:
   container_name: 'logspout'
+  restart: 'always'
   image: 'servicosgovbr/logspout:latest'
   volumes:
     - '/var/run/docker.sock:/tmp/docker.sock'
@@ -55,6 +56,7 @@ logstash:
 kibana:
   container_name: 'kibana'
   image: 'kibana:4.1'
+  restart: 'always'
 
   environment:
     ELASTICSEARCH_URL: 'http://es1:9200'
