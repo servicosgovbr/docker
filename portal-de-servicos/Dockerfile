@@ -1,4 +1,4 @@
-FROM azul/zulu-openjdk-centos
+FROM azul/zulu-openjdk-centos:8u66
 
 ADD yum.repo /etc/yum.repos.d/portal-de-servicos.repo
 RUN rpm --import https://raw.githubusercontent.com/servicosgovbr/portal-de-servicos/master/src/main/resources/static/GPG-KEY

@@ -54,7 +54,7 @@ logstash:
 
 kibana:
   container_name: 'kibana'
-  image: 'kibana:latest'
+  image: 'kibana:4.1'
 
   environment:
     ELASTICSEARCH_URL: 'http://es1:9200'
@@ -101,7 +101,7 @@ editor2:
 
 es1:
   container_name: 'es1'
-  image: 'elasticsearch'
+  image: 'elasticsearch:1.7'
   command: 'elasticsearch -Des.node.name="es1"'
   volumes:
    - '/usr/share/elasticsearch/es1/data:/usr/share/elasticsearch/data'
@@ -110,7 +110,7 @@ es1:
 
 es2:
   container_name: 'es2'
-  image: 'elasticsearch'
+  image: 'elasticsearch:1.7'
   command: 'elasticsearch -Des.node.name="es2"'
   volumes:
     - '/usr/share/elasticsearch/es2/data:/usr/share/elasticsearch/data'
@@ -124,7 +124,7 @@ dbdata:
 
 postgres:
   container_name: 'postgres'
-  image: 'postgres'   
+  image: 'postgres:9.4.5'   
   volumes_from: 
     - 'dbdata'
   environment:
