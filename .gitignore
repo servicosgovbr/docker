@@ -1,2 +1,3 @@
 *.swp
-balanceador/SERVICOSGOVBR.pem
+balanceador/*.pem
+ssh/id_*
