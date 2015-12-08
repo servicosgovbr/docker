@@ -1,3 +1,5 @@
 *.swp
 balanceador/*.pem
+balanceador/*.key
+balanceador/*.crt
 ssh/id_*
