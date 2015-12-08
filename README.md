@@ -12,6 +12,14 @@ Para utilizá-lo, é necessário ter instalados:
 
 Para o correto funcionamento do balanceador de carga, é preciso ter dentro da pasta *balanceador/*  um arquivo chamado SERVICOSGOVBR.pem
 
+## Criando seu próprio certificado SSL
+
+```
+cd balanceador
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mysitename.key -out mysitename.crt
+cat mysitename.key >> SERVICOSGOVBR.pem 
+cat mysitename.crt >> SERVICOSGOVBR.pem
+```
 ## Configurar o SSH
 
 Para correto funcionamento do editor, é preciso criar uma chave SSH, colocar essa chave na pasta /root/.ssh e então aplicar essa chave com permissão de leitura e escrita no repositório de cartas-de-servicos.
