@@ -15,7 +15,7 @@ Para o correto funcionamento do balanceador de carga, é preciso ter dentro da p
 ## Criando seu próprio certificado SSL
 
 ```
-cd balanceador
+cd balanceador/ssl/private
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout mysitename.key -out mysitename.crt
 cat mysitename.key >> SERVICOSGOVBR.pem 
 cat mysitename.crt >> SERVICOSGOVBR.pem
