@@ -6,3 +6,4 @@ balanceador/ssl/private/*.pem
 balanceador/ssl/private/*.key
 balanceador/ssl/private/*.crt
 ssh/id_*
+*~

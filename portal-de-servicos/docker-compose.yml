@@ -4,18 +4,18 @@ portal-de-servicos:
   environment:
     JAVA_OPTS: '-Dfile.encoding=UTF-8 -Xms256M -Xmx1G -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC'
     SPRING_DATA_ELASTICSEARCH_CLUSTERNODES: "es1:9300,es2:9300"
-    SPRING_THYMELEAF_CACHE: true
+    SPRING_THYMELEAF_CACHE: 'true'
     PDS_CARTAS_REPOSITORIO: "https://github.com/servicosgovbr/cartas-de-servico.git"
     PDS_IMPORTADOR_INTERVALO: "600000"
-    PDS_PIWIK_ENABLED: false
+    PDS_PIWIK_ENABLED: 'false'
     PDS_PIWIK_URL: "https://estatisticas.presidencia.gov.br/"
     PDS_PIWIK_TOKEN: ''
-    PDS_PIWIK_SITE: 52
-    FLAGS_PERMITIR_ROBOS: false
-    FLAGS_IMPORTAR_AUTOMATICAMENTE: true
-    FLAGS_DESTAQUES_AUTOMATICOS: false
-    ENDPOINTS_ENABLED: false
-    ENDPOINTS_JOLOKIA_ENABLED: false
-    ENDPOINTS_INFO_ENABLED: true
-    ENDPOINTS_HEALTH_ENABLED: true
-    ENDPOINTS_HEALTH_SENSITIVE: false
+    PDS_PIWIK_SITE: '52'
+    FLAGS_PERMITIR_ROBOS: 'false'
+    FLAGS_IMPORTAR_AUTOMATICAMENTE: 'true'
+    FLAGS_DESTAQUES_AUTOMATICOS: 'false'
+    ENDPOINTS_ENABLED: 'false'
+    ENDPOINTS_JOLOKIA_ENABLED: 'false'
+    ENDPOINTS_INFO_ENABLED: 'true'
+    ENDPOINTS_HEALTH_ENABLED: 'true'
+    ENDPOINTS_HEALTH_SENSITIVE: 'false'
