@@ -1,0 +1,8 @@
+ERRORS=$(cat *.log | grep ERROR)
+UNIQ_ERRORS=$(jq .logger_name <<<"$ERRORS" | sort | uniq)
+
+for x in $UNIQ_ERRORS;
+do
+  grep "$x" <<<"$ERRORS" | tail -n 15 | jq .
+done
+
