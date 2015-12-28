@@ -132,3 +132,13 @@ postgres:
   environment:
     PGDATA: '/dbdata'
 
+rotacionador:
+  container_name: 'rotacionador'
+  image: servicosgovbr/rotacionador
+  restart: 'always'
+  links:
+    - 'es1'
+  environment:
+    INTERVAL_IN_HOURS: 24
+    BIGGER_THAN_GIGA: 20
+    ESNAME: 'es1'
