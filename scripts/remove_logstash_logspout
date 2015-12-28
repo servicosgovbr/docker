@@ -6,8 +6,8 @@ cd '/root/docker'
 git pull --rebase
 
 docker-compose stop
-docker-compose kill es1 es2
-docker-compose rm -f es1 es2 
+docker-compose kill logstash logspout es1 es2 kibana
+docker-compose rm -f logstash logspout es1 es2 kibana
 
 docker-compose up -d
 docker-compose restart balanceador
