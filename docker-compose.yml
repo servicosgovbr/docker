@@ -139,6 +139,6 @@ rotacionador:
   links:
     - 'es1'
   environment:
-    INTERVAL_IN_HOURS: 24
+    INTERVAL_IN_HOURS: 2
     BIGGER_THAN_GIGA: 20
     ESNAME: 'es1'
