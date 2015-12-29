@@ -1,0 +1,9 @@
+FROM azul/zulu-openjdk-centos:8u66
+
+ADD /opt/portal-de-servicos.rpm portal-de-servicos.rpm
+RUN yum -y localinstall portal-de-servicos.rpm
+
+ADD run.sh /run.sh
+
+EXPOSE 8080
+CMD sh /run.sh
