@@ -11,6 +11,9 @@ balanceador:
   links:
     - 'es1'
     - 'es2'
+    - 'logstash'
+    - 'kibana'
+    - 'logspout'
     - 'portal1'
     - 'portal2'
     - 'editor1'
@@ -30,6 +33,38 @@ cadvisor:
   expose:
     - '8080'
 
+logspout:
+  container_name: 'logspout'
+  restart: 'always'
+  image: 'servicosgovbr/logspout:latest'
+  volumes:
+    - '/var/run/docker.sock:/tmp/docker.sock'
+  expose:
+    - '80'
+  environment:
+    ROUTE_URIS: 'logstash://logstash:5000'
+  links:
+    - 'logstash'
+
+logstash:
+  container_name: 'logstash'
+  image: 'servicosgovbr/logstash'
+  links:
+    - 'es1'
+    - 'es2'
+
+kibana:
+  container_name: 'kibana'
+  image: 'kibana:4.1'
+  restart: 'always'
+
+  environment:
+    ELASTICSEARCH_URL: 'http://es1:9200'
+
+  links:
+    - 'es1'
+    - 'es2'
+
 portal1:
   container_name: 'portal1'
   extends:
@@ -48,7 +83,7 @@ portal2:
     - 'es1'
     - 'es2'
   environment:
-    FLAGS_IMPORTAR_AUTOMATICAMENTE: 'false'
+    FLAGS_IMPORTAR_AUTOMATICAMENTE: false
 
 editor1:
   container_name: 'editor1'
@@ -84,7 +119,7 @@ es2:
 
 dbdata:
   container_name: 'dbdata'
-  image: 'postgres:9.4.5'   
+  image: 'postgres'   
   volumes:
     - '/dbdata'
   command: '/bin/true' 
@@ -97,3 +132,13 @@ postgres:
   environment:
     PGDATA: '/dbdata'
 
+rotacionador:
+  container_name: 'rotacionador'
+  image: servicosgovbr/rotacionador
+  restart: 'always'
+  links:
+    - 'es1'
+  environment:
+    INTERVAL_IN_HOURS: 2
+    BIGGER_THAN_GIGA: 20
+    ESNAME: 'es1'
