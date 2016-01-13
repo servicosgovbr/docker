@@ -5,6 +5,9 @@ set -o pipefail
 cd '/root/docker'
 git pull --rebase
 
+REPOSITORIO_CARTAS_PADRAO_EDITOR='git@github.com:servicosgovbr/cartas-de-servico.git'
+export EDS_CARTAS_REPOSITORIO="${EDS_CARTAS_REPOSITORIO:-$REPOSITORIO_CARTAS_PADRAO_EDITOR}"
+
 docker-compose stop editor1 editor2
 docker-compose kill editor1 editor2
 docker-compose rm -f editor1 editor2
