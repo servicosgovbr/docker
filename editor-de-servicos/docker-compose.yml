@@ -7,7 +7,7 @@
     JAVA_OPTS: '-Dfile.encoding=UTF-8 -Xms256M -Xmx1G -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC'
     SPRING_THYMELEAF_CACHE: true
     FLAGS_GIT_PUSH: true
-    EDS_CARTAS_REPOSITORIO: 'git@github.com:servicosgovbr/cartas-de-servico.git'
+    EDS_CARTAS_REPOSITORIO: "${EDS_CARTAS_REPOSITORIO}"
     ENDPOINTS_ENABLED: false
     ENDPOINTS_JOLOKIA_ENABLED: false
     ENDPOINTS_INFO_ENABLED: true
