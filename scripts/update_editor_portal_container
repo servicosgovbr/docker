@@ -15,8 +15,7 @@ docker-compose stop editor1 editor2 portal1 portal2
 docker-compose kill editor1 editor2 portal1 portal2
 docker-compose rm -f editor1 editor2 portal1 portal2
 
-./build editor-de-servicos
-./build portal-de-servicos
+./build-all
 
 docker-compose up -d
 docker-compose restart balanceador
