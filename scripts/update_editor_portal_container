@@ -11,11 +11,11 @@ export EDS_CARTAS_REPOSITORIO="${EDS_CARTAS_REPOSITORIO:-$REPOSITORIO_CARTAS_PAD
 REPOSITORIO_CARTAS_PADRAO_PORTAL='https://github.com/servicosgovbr/cartas-de-servico.git'
 export PDS_CARTAS_REPOSITORIO="${PDS_CARTAS_REPOSITORIO:-$REPOSITORIO_CARTAS_PADRAO_PORTAL}"
 
+./build-all
+
 docker-compose stop editor1 editor2 portal1 portal2
 docker-compose kill editor1 editor2 portal1 portal2
 docker-compose rm -f editor1 editor2 portal1 portal2
-
-./build-all
 
 docker-compose up -d
 docker-compose restart balanceador
