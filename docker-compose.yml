@@ -132,8 +132,8 @@ postgres:
   environment:
     PGDATA: '/dbdata'
 
-rotacionador:
-  container_name: 'rotacionador'
+rotacionador1:
+  container_name: 'rotacionador1'
   image: servicosgovbr/rotacionador
   restart: 'always'
   links:
@@ -142,3 +142,14 @@ rotacionador:
     INTERVAL_IN_HOURS: 1
     BIGGER_THAN_GIGA: 20
     ESNAME: 'es1'
+
+rotacionador2:
+  container_name: 'rotacionador2'
+  image: servicosgovbr/rotacionador
+  restart: 'always'
+  links:
+    - 'es2'
+  environment:
+    INTERVAL_IN_HOURS: 1
+    BIGGER_THAN_GIGA: 20
+    ESNAME: 'es2'
