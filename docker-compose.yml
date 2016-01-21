@@ -83,7 +83,7 @@ portal2:
     - 'es1'
     - 'es2'
   environment:
-    FLAGS_IMPORTAR_AUTOMATICAMENTE: false
+    FLAGS_IMPORTAR_AUTOMATICAMENTE: 'false'
 
 editor1:
   container_name: 'editor1'
@@ -119,7 +119,7 @@ es2:
 
 dbdata:
   container_name: 'dbdata'
-  image: 'postgres'   
+  image: 'postgres:9.4.5'   
   volumes:
     - '/dbdata'
   command: '/bin/true' 
