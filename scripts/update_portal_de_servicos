@@ -13,9 +13,9 @@ export PDS_CARTAS_REPOSITORIO="${PDS_CARTAS_REPOSITORIO:-$REPOSITORIO_CARTAS_PAD
 
 ./build-all
 
-docker-compose stop editor1 editor2 portal1 portal2
-docker-compose kill editor1 editor2 portal1 portal2
-docker-compose rm -f editor1 editor2 portal1 portal2
+docker-compose stop editor1 editor2 portal1 portal2 logstash kibana es1 es2 postgres
+docker-compose kill editor1 editor2 portal1 portal2 logstash kibana es1 es2 postgres
+docker-compose rm -f editor1 editor2 portal1 portal2 logstash kibana es1 es2 postgres
 
 docker-compose up -d
 docker-compose restart balanceador
