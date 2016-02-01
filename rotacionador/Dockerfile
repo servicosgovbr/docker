@@ -1,4 +1,4 @@
-FROM python:2.7
+FROM python:2.7-slim
 
 RUN pip install elasticsearch-curator==3.4.0
 
