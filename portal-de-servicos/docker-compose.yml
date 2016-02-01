@@ -10,7 +10,7 @@ portal-de-servicos:
     PDS_PIWIK_ENABLED: 'false'
     PDS_PIWIK_URL: "https://estatisticas.presidencia.gov.br/"
     PDS_PIWIK_TOKEN: ''
-    PDS_PIWIK_SITE: 52
+    PDS_PIWIK_SITE: 2
     FLAGS_PERMITIR_ROBOS: 'false'
     FLAGS_IMPORTAR_AUTOMATICAMENTE: 'true'
     FLAGS_DESTAQUES_AUTOMATICOS: 'false'
