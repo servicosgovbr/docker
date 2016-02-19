@@ -5,14 +5,21 @@ set -o pipefail
 cd '/root/docker'
 git pull --rebase
 
-REPOSITORIO_CARTAS_PADRAO_EDITOR='git@github.com:servicosgovbr/cartas-de-servico.git'
-export EDS_CARTAS_REPOSITORIO="${EDS_CARTAS_REPOSITORIO:-$REPOSITORIO_CARTAS_PADRAO_EDITOR}"
-
 ./build editor-de-servicos
 
-docker-compose stop editor1 editor2
-docker-compose kill editor1 editor2
-docker-compose rm -f editor1 editor2
+docker-compose stop editor1
+docker-compose kill editor1
+docker-compose rm -f editor1
 
-docker-compose up -d
-docker-compose restart balanceador
+docker-compose up -d editor1
+
+sleep 9000
+
+docker-compose stop editor2        
+docker-compose kill editor2        
+docker-compose rm -f editor2
+
+docker-compose up -d editor2
+
+docker rmi $(docker images -q -f dangling=true)
+
