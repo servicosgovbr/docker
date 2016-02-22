@@ -13,7 +13,7 @@ docker-compose rm -f editor1
 
 docker-compose up -d editor1
 
-sleep 9000
+sleep 180 
 
 docker-compose stop editor2        
 docker-compose kill editor2        

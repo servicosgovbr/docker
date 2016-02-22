@@ -13,7 +13,7 @@ docker-compose rm -f portal1
 
 docker-compose up -d portal1
 
-sleep 600
+sleep 180
 
 docker-compose stop portal2
 docker-compose kill portal2
