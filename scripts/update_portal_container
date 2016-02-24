@@ -5,11 +5,11 @@ set -o pipefail
 cd '/root/docker'
 git pull --rebase
 
-./build portal-de-servicos
-
 docker-compose stop portal1
 docker-compose kill portal1
 docker rm -f portal1
+
+./build portal-de-servicos
 
 docker-compose up -d portal1
 
