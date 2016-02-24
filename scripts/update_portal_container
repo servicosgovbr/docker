@@ -9,7 +9,7 @@ git pull --rebase
 
 docker-compose stop portal1
 docker-compose kill portal1
-docker-compose rm -f portal1
+docker rm -f portal1
 
 docker-compose up -d portal1
 
@@ -17,7 +17,7 @@ sleep 180
 
 docker-compose stop portal2
 docker-compose kill portal2
-docker-compose rm -f portal2
+docker rm -f portal2
 
 docker-compose up -d portal2
 
