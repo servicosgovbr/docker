@@ -10,4 +10,4 @@ if [ ! -f /etc/ssl/private/SERVICOSGOVBR.pem ]; then
    sed -i  '/Secure if secure/d' $HAPROXY
 fi 
 
-haproxy -f $HAPROXY
+exec haproxy -f $HAPROXY
