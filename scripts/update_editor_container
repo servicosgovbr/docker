@@ -5,11 +5,11 @@ set -o pipefail
 cd '/root/docker'
 git pull --rebase
 
-./build editor-de-servicos
-
 docker-compose stop editor1
 docker-compose kill editor1
 docker-compose rm -f editor1
+
+./build editor-de-servicos
 
 docker-compose up -d editor1
 
