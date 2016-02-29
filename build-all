@@ -1,3 +1,23 @@
 #!/bin/bash
 
-./build balanceador editor-de-servicos portal-de-servicos logspout logstash rotacionador
+pids=( )
+
+./build balanceador &
+pids+=($!)
+
+./build editor-de-servicos &
+pids+=($!)
+
+./build portal-de-servicos &
+pids+=($!)
+
+./build logspout &
+pids+=($!)
+
+./build logstash &
+pids+=($!)
+
+./build rotacionador &
+pids+=($!)
+
+wait "${pids[@]}"
