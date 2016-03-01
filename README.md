@@ -1,4 +1,6 @@
-[![Stories in Ready](https://badge.waffle.io/servicosgovbr/docker.png?label=ready&title=Ready)](https://waffle.io/servicosgovbr/docker)
+[![Nossas hipóteses](https://badge.waffle.io/servicosgovbr/portal-de-servicos.svg?label=in%20progress&title=Nossas%20hipóteses)](http://waffle.io/servicosgovbr/portal-de-servicos)
+[![Gitter](https://badges.gitter.im/Fale%20conosco.svg)](https://gitter.im/servicosgovbr/portal-de-servicos?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
 # Imagens Docker para o Portal e Editor de Serviços
 
 Este repositório contém `Dockerfile`s e configurações do Docker Compose para a criação de um ambiente contendo o Portal e o Editor de Serviços com balanceamento de carga, *fail-over* e monitoramento.
