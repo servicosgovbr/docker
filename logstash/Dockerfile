@@ -1,4 +1,4 @@
-FROM logstash:1.5.5
+FROM logstash:1.5
 
 ADD ./logstash.conf /logstash.conf
 EXPOSE 5000
