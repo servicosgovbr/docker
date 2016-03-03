@@ -1,4 +1,8 @@
-ERRORS=$(cat *.log | grep ERROR)
+#!/bin/bash
+set -e
+set -o pipefail
+
+ERRORS=$(grep ERROR *.log)
 UNIQ_ERRORS=$(jq .logger_name <<<"$ERRORS" | sort | uniq)
 
 for x in $UNIQ_ERRORS;

@@ -1,9 +1,0 @@
-FROM azul/zulu-openjdk-centos:8u66
-
-ADD /opt/editor-de-servicos.rpm editor-de-servicos.rpm
-RUN yum -y localinstall editor-de-servicos.rpm
-
-ADD run.sh /run.sh
-
-EXPOSE 8090
-CMD sh /run.sh
