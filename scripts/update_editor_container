@@ -3,23 +3,19 @@ set -x
 set -e
 set -o pipefail
 
-cd '/root/docker'
-git pull --rebase
+function update() {
+  docker-compose stop $1
+  docker-compose kill $1
+  docker-compose rm -f $1
+  docker-compose up -d $1
+  while ! docker exec $1 curl -s "http://localhost:8090/info"; do
+    sleep 1
+  done
+}
 
-docker-compose stop editor1
-docker-compose kill editor1
-docker-compose rm -f editor1
+# cd '/root/docker'
+# git pull --rebase
 
 ./build editor-de-servicos
-
-docker-compose up -d editor1
-
-sleep 300 
-
-docker-compose stop editor2        
-docker-compose kill editor2        
-docker-compose rm -f editor2
-
-docker-compose up -d editor2
-
-docker rmi $(docker images -q -f dangling=true)
+update editor1
+update editor2

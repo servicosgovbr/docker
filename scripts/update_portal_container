@@ -1,28 +1,21 @@
 #!/bin/bash
-#Script para atualizar o portal1 e portal2. Primeiro irá atualizar o portal1 e espera alguns minutos para atualizar portal2
 set -x
 set -e
 set -o pipefail
 
-cd '/root/docker'
-git pull --rebase
+function update() {
+  docker-compose stop $1
+  docker-compose kill $1
+  docker-compose rm -f $1
+  docker-compose up -d $1
+  while ! docker exec $1 curl -s "http://localhost:8080/info"; do
+    sleep 1
+  done
+}
 
-docker-compose stop portal1
-docker-compose kill portal1
-docker rm -f portal1
+# cd '/root/docker'
+# git pull --rebase
 
 ./build portal-de-servicos
-
-docker-compose up -d portal1
-
-#15 minutos espera para atualizar o portal2
-sleep 900
-
-docker-compose stop portal2
-docker-compose kill portal2
-docker rm -f portal2
-
-docker-compose up -d portal2
-
-#remove a imagem antiga do portal (que ficou em tag)
-docker rmi $(docker images -q -f dangling=true)
+update portal1
+update portal2
