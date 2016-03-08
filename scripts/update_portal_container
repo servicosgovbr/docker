@@ -13,8 +13,10 @@ function update() {
   done
 }
 
-# cd '/root/docker'
-# git pull --rebase
+if [ -d '/root/docker' ]; then
+  cd '/root/docker'
+  git pull --rebase
+fi
 
 ./build portal-de-servicos
 update portal1
