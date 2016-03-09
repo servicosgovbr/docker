@@ -13,7 +13,7 @@ function update() {
   done
 }
 
-if [ -d '/root/docker' ]; then
+if [ `whoami` == 'root' ]; then
   cd '/root/docker'
   git pull --rebase
 fi
