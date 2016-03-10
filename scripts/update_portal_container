@@ -11,7 +11,7 @@ function update() {
   docker-compose rm -f $1
   docker-compose up -d $1
 
-  while [ "$TIMEOUT" != "0" ] && ! docker exec $1 curl "http://localhost:8080/info"; do
+  while [ "$TIMEOUT" != "0" ] && ! docker exec $1 curl -s "http://localhost:8080/info"; do
     TIMEOUT=$(expr "$TIMEOUT" - "1")
     sleep 1
   done
