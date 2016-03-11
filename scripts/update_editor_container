@@ -3,7 +3,7 @@ set -x
 set -e
 set -o pipefail
 
-TIMEOUT=1200
+TIMEOUT=200
 
 function update() {
   docker-compose stop $1
