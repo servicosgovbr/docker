@@ -3,18 +3,20 @@ set -x
 set -e
 set -o pipefail
 
-TIMEOUT=900
-
 function update() {
   docker-compose stop $1
   docker-compose kill $1
   docker-compose rm -f $1
   docker-compose up -d $1
 
+  TIMEOUT=1000
+
+  set +x
   while [ "$TIMEOUT" != "0" ] && ! docker exec $1 curl -s "http://localhost:8080/info"; do
     TIMEOUT=$(expr "$TIMEOUT" - "1")
     sleep 1
   done
+  set -x
 }
 
 if [ `whoami` == 'root' ]; then
