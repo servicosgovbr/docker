@@ -1,5 +1,15 @@
 #!/bin/bash
 
+if [ -z "${SNAP_API_KEY}" ]; then
+  echo "Variável de ambiente SNAP_API_KEY não informada!"
+  exit -1
+exit
+
+if [ -z "${SNAP_PIPELINE_COUNTER}" ]; then
+  echo "Variável de ambiente SNAP_PIPELINE_COUNTER não informada!"
+  exit -1
+exit
+
 for i in "$@"
 do
   pushd "${i}" > /dev/null
