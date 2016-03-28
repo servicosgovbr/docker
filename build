@@ -3,12 +3,12 @@
 if [ -z "${SNAP_API_KEY}" ]; then
   echo "Variável de ambiente SNAP_API_KEY não informada!"
   exit -1
-exit
+fi
 
 if [ -z "${SNAP_PIPELINE_COUNTER}" ]; then
   echo "Variável de ambiente SNAP_PIPELINE_COUNTER não informada!"
   exit -1
-exit
+fi
 
 for i in "$@"
 do
