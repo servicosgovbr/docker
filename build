@@ -13,7 +13,13 @@ fi
 for i in "$@"
 do
   pushd "${i}" > /dev/null
-  docker build --no-cache=true --build-arg=SNAP_API_KEY="${SNAP_API_KEY}" --build-arg=SNAP_PIPELINE_COUNTER="${SNAP_PIPELINE_COUNTER}" -t="servicosgovbr/${i}" .
+
+  if [ "${i}" == 'portal-de-servicos' ] || [ "${i}" == 'editor-de-servicos' ]; then
+    docker build --no-cache=true --build-arg=SNAP_API_KEY="${SNAP_API_KEY}" --build-arg=SNAP_PIPELINE_COUNTER="${SNAP_PIPELINE_COUNTER}" -t="servicosgovbr/${i}" .
+  else
+    docker build --no-cache=true -t="servicosgovbr/${i}" .
+  fi
+
   docker push "servicosgovbr/${i}"
   popd > /dev/null
 done
