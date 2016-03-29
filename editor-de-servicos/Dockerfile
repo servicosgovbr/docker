@@ -9,7 +9,7 @@ RUN curl -s -L -o /usr/bin/jq https://github.com/stedolan/jq/releases/download/j
 ARG SNAP_API_KEY
 ARG SNAP_PIPELINE_COUNTER
 
-RUN curl -s -L -u ${SNAP_API_KEY} https://api.snap-ci.com/project/servicosgovbr/editor-de-servicos/branch/master/pipelines/${SNAP_PIPELINE_COUNTER} | jq '.stages[1].workers[0].artifacts[0].download_url' | xargs curl -o editor-de-servicos-latest.rpm -s -L -u ${SNAP_API_KEY} && yum install -y editor-de-servicos-latest.rpm
+RUN curl -L -u ${SNAP_API_KEY} https://api.snap-ci.com/project/servicosgovbr/editor-de-servicos/branch/master/pipelines/${SNAP_PIPELINE_COUNTER} | jq '.stages[1].workers[0].artifacts[0].download_url' | xargs curl -o editor-de-servicos-latest.rpm -L -u ${SNAP_API_KEY} && yum install -y editor-de-servicos-latest.rpm
 
 ADD run.sh /run.sh
 
