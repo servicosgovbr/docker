@@ -16,7 +16,8 @@ do
 
   if [ "${i}" == 'portal-de-servicos' ] || [ "${i}" == 'editor-de-servicos' ]; then
     docker build --no-cache=true --build-arg=SNAP_API_KEY="${SNAP_API_KEY}" --build-arg=SNAP_PIPELINE_COUNTER="${SNAP_PIPELINE_COUNTER}" -t="servicosgovbr/${i}" .
-    docker push "servicosgovbr/${i}:${SNAP_PIPELINE_COUNTER}"
+    docker push "servicosgovbr/${i}"
+    docker tag "servicosgovbr/${i}" "servicosgovbr/${i}:${SNAP_PIPELINE_COUNTER}"
   else
     docker build --no-cache=true -t="servicosgovbr/${i}" .
     docker push "servicosgovbr/${i}"
