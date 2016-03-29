@@ -14,6 +14,7 @@ for i in "$@"
 do
   pushd "${i}" > /dev/null
   docker build --no-cache=true --build-arg=SNAP_API_KEY="${SNAP_API_KEY}" --build-arg=SNAP_PIPELINE_COUNTER="${SNAP_PIPELINE_COUNTER}" -t="servicosgovbr/${i}" .
+  docker push "servicosgovbr/${i}"
   popd > /dev/null
 done
 
