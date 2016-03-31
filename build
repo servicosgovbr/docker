@@ -26,9 +26,9 @@ do
   fi
 
   # Remove imagens que não vão mais ser usadas
-  docker rmi -f $(docker images -a --format {{.ID}}) && true
+  docker rmi -f $(docker images -a -q && true
   # Remove dependencias que não foram removidas no comando anterior
-  docker rmi -f $(docker images -a --format {{.ID}}) && true
+  docker rmi -f $(docker images -a -q && true
 
   popd > /dev/null
 done
