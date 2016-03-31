@@ -23,6 +23,11 @@ do
     docker push "servicosgovbr/${i}"
   fi
 
+  # Remove imagens que não vão mais ser usadas
+  docker images -a --format {{.ID}} | xargs docker rmi -f
+  # Remove dependencias que não foram removidas no comando anterior
+  docker images -a --format {{.ID}} | xargs docker rmi -f
+
   popd > /dev/null
 done
 
