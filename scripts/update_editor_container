@@ -19,13 +19,13 @@ docker-compose up -d
 set +x
 
 TIMEOUT=1000
-while [ "$TIMEOUT" != "0" ] && ! docker exec editor1 curl -s "http://localhost:8080/info"; do
+while [ "$TIMEOUT" != "0" ] && ! docker exec editor1 curl -s "http://localhost:8090/info"; do
   TIMEOUT=$(expr "$TIMEOUT" - "1")
   sleep 1
 done
 
 TIMEOUT=1000
-while [ "$TIMEOUT" != "0" ] && ! docker exec editor2 curl -s "http://localhost:8080/info"; do
+while [ "$TIMEOUT" != "0" ] && ! docker exec editor2 curl -s "http://localhost:8090/info"; do
   TIMEOUT=$(expr "$TIMEOUT" - "1")
   sleep 1
 done
