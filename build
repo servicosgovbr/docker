@@ -1,4 +1,6 @@
 #!/bin/bash
+set -x
+set -e
 
 if [ -z "${SNAP_API_KEY}" ]; then
   echo "Variável de ambiente SNAP_API_KEY não informada!"
