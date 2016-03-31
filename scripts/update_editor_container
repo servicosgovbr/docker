@@ -3,27 +3,31 @@ set -x
 set -e
 set -o pipefail
 
-function update() {
-  docker-compose kill
-  docker-compose rm -f $1
-  docker-compose up -d
-
-  TIMEOUT=1000
-
-  set +x
-  while [ "$TIMEOUT" != "0" ] && ! docker exec $1 curl -s "http://localhost:8090/info"; do
-    TIMEOUT=$(expr "$TIMEOUT" - "1")
-    sleep 1
-    echo "${TIMEOUT}..."
-  done
-  set -x
-}
-
 if [ `whoami` == 'root' ]; then
   cd '/root/docker'
   git pull --rebase
 fi
 
+
+docker-compose stop
+docker-compose kill
+
 ./build editor-de-servicos
-update editor1
-update editor2
+
+docker-compose up -d
+
+set +x
+
+TIMEOUT=1000
+while [ "$TIMEOUT" != "0" ] && ! docker exec editor1 curl -s "http://localhost:8080/info"; do
+  TIMEOUT=$(expr "$TIMEOUT" - "1")
+  sleep 1
+done
+
+TIMEOUT=1000
+while [ "$TIMEOUT" != "0" ] && ! docker exec editor2 curl -s "http://localhost:8080/info"; do
+  TIMEOUT=$(expr "$TIMEOUT" - "1")
+  sleep 1
+done
+
+set -x
