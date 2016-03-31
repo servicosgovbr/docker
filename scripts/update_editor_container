@@ -4,7 +4,7 @@ set -e
 set -o pipefail
 
 function update() {
-  docker-compose stop
+  docker-compose kill
   docker-compose rm -f $1
   docker-compose up -d
 
