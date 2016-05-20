@@ -17,7 +17,7 @@ balanceador:
     - 'portal1'
     - 'portal2'
     - 'editor1'
-    - 'editor2'
+   # - 'editor2'
     - 'cadvisor'
     - 'postgres'
 
@@ -93,13 +93,13 @@ editor1:
   links:
     - 'postgres'
 
-editor2:
-  container_name: 'editor2'
-  extends:
-    file: 'editor-de-servicos/docker-compose.yml'
-    service: 'editor-de-servicos'
-  links:
-    - 'postgres'
+#editor2:
+#  container_name: 'editor2'
+#  extends:
+#    file: 'editor-de-servicos/docker-compose.yml'
+#    service: 'editor-de-servicos'
+#  links:
+#    - 'postgres'
 
 es1:
   container_name: 'es1'
@@ -140,5 +140,5 @@ rotacionador:
     - 'es1'
   environment:
     INTERVAL_IN_HOURS: 2
-    BIGGER_THAN_GIGA: 10
+    BIGGER_THAN_GIGA: 5
     ESNAME: 'es1'
