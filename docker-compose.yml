@@ -32,6 +32,7 @@ cadvisor:
     - '/var/lib/docker/:/var/lib/docker:ro'
   expose:
     - '8080'
+  command: ['--storage_duration=10m']
 
 logspout:
   container_name: 'logspout'
