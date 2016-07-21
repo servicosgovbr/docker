@@ -27,9 +27,11 @@ do
   fi
 
   # Remove imagens que não vão mais ser usadas
-  docker rmi -f $(docker images -a -q) && true
-  # Remove dependencias que não foram removidas no comando anterior
-  docker rmi -f $(docker images -a -q) && true
+  docker run \
+  -v /var/run/docker.sock:/var/run/docker.sock:rw \
+  -v /var/lib/docker:/var/lib/docker:rw \
+  -e "LOOP=false" -e "KEEP_CONTAINERS_NAMED=dbdata" \
+  meltwater/docker-cleanup:latest
 
   popd > /dev/null
 done
